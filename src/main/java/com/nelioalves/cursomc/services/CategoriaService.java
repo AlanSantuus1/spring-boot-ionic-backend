@@ -37,20 +37,19 @@ public class CategoriaService {
 	
 	public Categoria update(Categoria obj) {
 		Categoria newObj = find(obj.getId());
-//		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 
-//	public void delete(Integer id) {
-//		find(id);
-//		try {
-//			repo.delete(id);
-//		}
-//		catch (DataIntegrityViolationException e) {
-//			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
-//		}
-//	}
-//
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.delete(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
+		}
+	}
+
 //	public List<Categoria> findAll() {
 //		return repo.findAll();
 //	}
